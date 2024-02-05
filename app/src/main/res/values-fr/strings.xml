@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Learn my lines</string>
+    <string name="nav_read">Lire</string>
+    <string name="nav_learn">Apprendre</string>
+    <string name="nav_quiz">Quiz</string>
+    <string name="nav_settings">Paramètres</string>
+    <string name="next">Suivant</string>
+    <string name="next_scene">Scène suivante</string>
+    <string name="reset">Retour</string>
+    <string name="read_empty">Aucune pièce n\'a été séléctionné, aller dans les paramètres pour en choisir une.</string>
+    <string name="learn_empty">Votre personnage n\'a aucune réplique, aller dans les paramètres pour choisir un autre personnage.</string>
+    <string name="settings_play">Pièce :</string>
+    <string name="settings_import_play">Importer une pièce</string>
+    <string name="settings_delete_play">Supprimer la pièce</string>
+    <string name="settings_character">Votre personnage :</string>
+    <string name="settings_dialog_delete_play_title">Confirmation de la suppression de la pièce</string>
+    <string name="settings_dialog_delete_play_text">Etes vous sûr de vouloir supprimer la pièce: \"%1$s\" (pas d\'undo possible)?</string>
+    <string name="settings_dialog_delete_play_yes">Oui</string>
+    <string name="settings_dialog_delete_play_no">Non</string>
+    <string name="settings_dialog_import_failed_title">Echec de l\'importation</string>
+    <string name="settings_dialog_import_failed_ok">OK</string>
+</resources>
