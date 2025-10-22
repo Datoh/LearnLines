@@ -33,7 +33,7 @@ Here's a short description of the expected format:
 *   **Acts**: Indicate a new act by starting a line with `##` followed by its name (e.g., `## Acte 1`).
 *   **Scenes**: Indicate a new scene by starting a line with `###` followed by its name (e.g., `### Scene 1`). Scenes should be nested within acts.
 *   **Character Lines**: Each character's dialogue should begin with the character's name, followed by a colon, and then their line. The line can't span multiple physical lines in the file. Empty lines are ignored.
-*   **Stage Directions**: If you have stage directions that appear between lines of dialogue, they should be added to the beginning of the following line, often enclosed in parentheses.
+*   **Stage Directions**: Indicate stage directions with parenthesis. If you have stage directions that appear between lines of dialogue, they will be added to the beginning of the following line.
 
 You can find a full example of a formatted play file [here](https://github.com/Datoh/LearnLines/blob/main/app/src/main/res/raw/le_jeu_de_l_amour_et_du_hasard.txt).
 

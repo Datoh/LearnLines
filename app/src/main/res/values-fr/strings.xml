@@ -20,4 +20,18 @@
     <string name="settings_dialog_delete_play_no">Non</string>
     <string name="settings_dialog_import_failed_title">Echec de l\'importation</string>
     <string name="settings_dialog_import_failed_ok">OK</string>
+    <string name="settings_how_to_format_button">Comment formater un fichier de pièce</string>
+    <string name="settings_how_to_format_title">Comment formater un fichier de pièce</string>
+    <string name="settings_how_to_format_ok">OK</string>
+    <string name="settings_how_to_format_content">
+        Pour formater un fichier texte brut pour l\'application \"Learn my lines\", l\'analyseur intelligent de l\'application s\'attend à une mise en page simple et structurée qui délimite clairement le titre de la pièce, les actes, les scènes, les personnages et leurs dialogues.\n\n
+        Voici une courte description du format attendu :\n\n
+        • Type de fichier : Le fichier doit être un fichier texte brut (par exemple, .txt).\n
+        • Titre de la pièce : Le titre de la pièce doit être sur la première ligne, préfixé par un seul # (par exemple, # Ma Merveilleuse Pièce).\n
+        • Actes : Indiquez un nouvel acte en commençant une ligne par ## suivi de son nom (par exemple, ## Acte 1).\n
+        • Scènes : Indiquez une nouvelle scène en commençant une ligne par ### suivi de son nom (par exemple, ### Scène 1). Les scènes doivent être imbriquées dans les actes.\n
+        • Répliques des personnages : Le dialogue de chaque personnage doit commencer par le nom du personnage, suivi de deux-points, puis de sa réplique. La réplique ne peut pas s\'étendre sur plusieurs lignes physiques dans le fichier. Les lignes vides sont ignorées.\n
+        • Didascalies : Les didascalies doivent être entourées de parenthèses. Si vous avez des didascalies qui apparaissent entre les lignes de dialogue, elles doivent être ajoutées au début de la ligne suivante.\n\n
+    </string>
+    <string name="settings_how_to_format_example"><![CDATA[# Ma Merveilleuse Pièce<br/>## Acte 1<br/>### Scène 1<br/>John: (entrant) Bonjour, monde ! Quelle belle journée pour apprendre mes répliques.<br/>Mary: (heureuse) En effet, John. Le soleil brille de mille feux.<br/>John: J\'espère que je me souviendrai de toutes mes répliques.<br/><br/>### Scène 2<br/>Serveur: Puis-je vous servir quelque chose ?<br/>Mary: Juste un café, s\'il vous plaît.]]></string>
 </resources>

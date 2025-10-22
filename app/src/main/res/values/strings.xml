@@ -22,4 +22,18 @@
     <string name="settings_dialog_delete_play_no">No</string>
     <string name="settings_dialog_import_failed_title">Import failed</string>
     <string name="settings_dialog_import_failed_ok">OK</string>
+    <string name="settings_how_to_format_button">How to format a play file</string>
+    <string name="settings_how_to_format_title">How to format a play file</string>
+    <string name="settings_how_to_format_ok">OK</string>
+    <string name="settings_how_to_format_content">
+        To format a plain text file for the \"Learn my lines\" application, the app\'s intelligent parser expects a simple, structured layout that clearly delineates the play\'s title, acts, scenes, characters, and their dialogue.\n\n
+        Here\'s a short description of the expected format:\n\n
+        • File Type: The file should be a plain text file (e.g., .txt).\n
+        • Play Title: The play\'s title should be on the first line, prefixed with a single # (e.g., # My Wonderful Play).\n
+        • Acts: Indicate a new act by starting a line with ## followed by its name (e.g., ## Act 1).\n
+        • Scenes: Indicate a new scene by starting a line with ### followed by its name (e.g., ### Scene 1). Scenes should be nested within acts.\n
+        • Character Lines: Each character\'s dialogue should begin with the character\'s name, followed by a colon, and then their line. The line can\'t span multiple physical lines in the file. Empty lines are ignored.\n
+        • Stage Directions: Indicate stage directions with parenthesis. If you have stage directions that appear between lines of dialogue, they will be added to the beginning of the following line.\n\n
+    </string>
+    <string name="settings_how_to_format_example"><![CDATA[# My Wonderful Play<br/>## Act 1<br/>### Scene 1<br/>John: (entering) Good morning, world! What a beautiful day to learn my lines.<br/>Mary: (happy) Indeed, John. The sun is shining brightly.<br/>John: I hope I remember all my cues.<br/><br/>### Scene 2<br/>Waiter: Can I get you anything?<br/>Mary: Just a coffee, please.]]></string>
 </resources>

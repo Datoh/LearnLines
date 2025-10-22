@@ -3,14 +3,18 @@ package com.datoh.learnlines.ui
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
+import android.text.Spanned
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -22,13 +26,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.text.HtmlCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.datoh.learnlines.AppViewModelProvider
 import com.datoh.learnlines.R
@@ -36,7 +42,8 @@ import com.datoh.learnlines.model.playParser
 import com.datoh.learnlines.ui.theme.LearnLinesTheme
 import com.datoh.learnlines.viewmodel.PlayViewModel
 import com.datoh.learnlines.viewmodel.PlaysViewModel
-import kotlinx.coroutines.launch
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.runtime.setValue
 import java.io.BufferedReader
 import java.io.InputStream
 
@@ -57,6 +64,7 @@ fun Settings(
 
     val openDeletionDialog = remember { mutableStateOf(false) }
     val openErrorImportDialog = remember { mutableStateOf<String?>(null) }
+    val openHowToDialog = remember { mutableStateOf(false) }
 
     val filePicker = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent(),
@@ -126,6 +134,41 @@ fun Settings(
             onDismissRequest = { openDeletionDialog.value = false }
         )
     }
+
+    if (openHowToDialog.value) {
+        AlertDialog(
+            title = { Text(text = stringResource(R.string.settings_how_to_format_title)) },
+            text = {
+                Column(Modifier.verticalScroll(rememberScrollState())) {
+                    Text(text = stringResource(id = R.string.settings_how_to_format_content))
+                    Card(modifier = Modifier.padding(top = 8.dp)) {
+                        Text(
+                            text = stringResource(id = R.string.settings_how_to_format_example).toAnnotatedStringFromHtml(),
+                            modifier = Modifier
+                                .background(Color.LightGray.copy(alpha = 0.3f))
+                                .padding(8.dp)
+                                .fillMaxWidth()
+                        )
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = { openHowToDialog.value = false }
+                ) {
+                    Text(stringResource(R.string.settings_how_to_format_ok))
+                }
+            },
+            onDismissRequest = { openHowToDialog.value = false }
+        )
+    }
+
+
+
+
+
+
+
     Box(
         modifier = modifier
             .fillMaxWidth()
@@ -219,6 +262,11 @@ fun Settings(
                     Text(stringResource(R.string.settings_delete_play))
                 }
             }
+            Button(
+                modifier = modifier.fillMaxWidth().padding(bottom = 16.dp),
+                onClick = { openHowToDialog.value = true }) {
+                Text(stringResource(R.string.settings_how_to_format_button))
+            }
         }
     }
 }
@@ -232,5 +280,17 @@ fun SettingsPreview() {
         val playsViewModel: PlaysViewModel = viewModel(factory = AppViewModelProvider.Factory)
         val playViewModel: PlayViewModel = viewModel(factory = AppViewModelProvider.Factory)
         Settings(LocalContext.current, playsViewModel, playViewModel)
+    }
+}
+
+@Composable
+private fun String.toAnnotatedStringFromHtml(): AnnotatedString {
+    val spanned = HtmlCompat.fromHtml(this, HtmlCompat.FROM_HTML_MODE_LEGACY)
+    return spanned.toAnnotatedString()
+}
+
+private fun Spanned.toAnnotatedString(): AnnotatedString {
+    return buildAnnotatedString {
+        append(this@toAnnotatedString)
     }
 }

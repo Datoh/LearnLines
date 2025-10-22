@@ -94,7 +94,17 @@ abstract class PlayDatabase : RoomDatabase() {
                                 } catch (ioException: IOException) {
                                     println(ioException)
                                 }
-                                val play = playParser(content)
+                                var play = playParser(content)
+                                Instance?.playDao()?.insert(PlayItem(play.name, content))
+                                try {
+                                    content =
+                                        context.resources.openRawResource(R.raw.the_importance_of_being_earnest)
+                                            .bufferedReader()
+                                            .use { it.readText() }
+                                } catch (ioException: IOException) {
+                                    println(ioException)
+                                }
+                                play = playParser(content)
                                 Instance?.playDao()?.insert(PlayItem(play.name, content))
                             }
                         }
